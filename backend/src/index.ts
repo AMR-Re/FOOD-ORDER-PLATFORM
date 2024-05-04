@@ -1,8 +1,10 @@
 import express,{Request,Response} from "express";
 import cors from "cors";
 import "dotenv/config";
+import mongoose from "mongoose";
 
-
+mongoose.connect(process.env.MONGO_URL as string)//casting
+.then(()=>console.log("Connected To MongoDB"));
 
 const app=express();
 app.use(express.json());
